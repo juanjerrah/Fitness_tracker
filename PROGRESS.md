@@ -1,6 +1,6 @@
 # Progresso de Implementação
 
-> **Última atualização:** 2026-07-05 22:05  
+> **Última atualização:** 2026-07-05 22:35  
 > **Gerenciado por:** skill `dev`
 
 ---
@@ -9,14 +9,14 @@
 
 | Status | Quantidade |
 |--------|------------|
-| ✅ Concluídas | 1 |
+| ✅ Concluídas | 5 |
 | 🔄 Em andamento | 0 |
-| ⏳ Pendentes | 42 |
+| ⏳ Pendentes | 38 |
 | 🚫 Bloqueadas | 0 |
 
 **Feature ativa:** Fitness Tracker (sistema completo)  
 **Frente ativa:** Mobile — `tasks_mobile.md`  
-**Próxima task sugerida:** MO-002 — Drizzle + expo-sqlite + migração v1
+**Próxima task sugerida:** MO-006 — Schema Drizzle completo + índices
 
 ---
 
@@ -40,10 +40,10 @@
 | Task | Título | Status | Concluída em | Commit / PR | Notas |
 |------|--------|--------|--------------|-------------|-------|
 | MO-001 | Scaffold Expo + estrutura de pastas | ✅ Concluída | 2026-07-05 | — | Expo SDK 57, tabs; export web OK |
-| MO-002 | Drizzle + expo-sqlite + migração v1 | ⏳ Pendente | — | — | |
-| MO-003 | DI container e wiring base | ⏳ Pendente | — | — | |
-| MO-004 | i18n setup (i18next + expo-localization) | ⏳ Pendente | — | — | |
-| MO-005 | Design system mínimo (UI shared) | ⏳ Pendente | — | — | |
+| MO-002 | Drizzle + expo-sqlite + migração v1 | ✅ Concluída | 2026-07-05 | — | POC `_poc_healthcheck`; migrations no boot |
+| MO-003 | DI container e wiring base | ✅ Concluída | 2026-07-05 | — | `useAppContainer()` + provider root |
+| MO-004 | i18n setup (i18next + expo-localization) | ✅ Concluída | 2026-07-05 | — | pt-BR, es-ES, en-US; namespace common |
+| MO-005 | Design system mínimo (UI shared) | ✅ Concluída | 2026-07-05 | — | Button…SetInputSheet; tema + safe area |
 | MO-006 | Schema Drizzle completo + índices | ⏳ Pendente | — | — | |
 | MO-007 | Settings repository + use cases | ⏳ Pendente | — | — | |
 | MO-008 | Exercise repository + seed | ⏳ Pendente | — | — | |
@@ -90,6 +90,10 @@
 | Data | Feature | Frente | Task | Observação |
 |------|---------|--------|------|------------|
 | 2026-07-05 | Fitness Tracker | Mobile | MO-001 | Expo SDK 57 + estrutura src/ + ESLint/Prettier/Jest |
+| 2026-07-05 | Fitness Tracker | Mobile | MO-002 | Drizzle + expo-sqlite + migration POC |
+| 2026-07-05 | Fitness Tracker | Mobile | MO-003 | DI container + AppContainerProvider |
+| 2026-07-05 | Fitness Tracker | Mobile | MO-004 | i18n pt/es/en + tabs traduzidas |
+| 2026-07-05 | Fitness Tracker | Mobile | MO-005 | Design system + SetInputSheet |
 
 ---
 

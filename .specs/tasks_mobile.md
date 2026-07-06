@@ -113,17 +113,17 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] Instalar: `expo-sqlite`, `drizzle-orm`, `drizzle-kit`
-- [ ] `src/data/db/client.ts`, `drizzle.config.ts`
-- [ ] POC: insert + select em tabela de teste; remover após MO-006
-- [ ] Executar migrations no app start
+- [x] Instalar: `expo-sqlite`, `drizzle-orm`, `drizzle-kit`
+- [x] `src/data/db/client.ts`, `drizzle.config.ts`
+- [x] POC: insert + select em tabela de teste; remover após MO-006
+- [x] Executar migrations no app start
 
 #### Critérios de aceite
 
-- [ ] SQLite abre offline; migration roda idempotentemente
-- [ ] POC insert/query documentado em comentário ou teste
+- [x] SQLite abre offline; migration roda idempotentemente
+- [x] POC insert/query documentado em comentário ou teste
 
----
+> **Concluída em:** 2026-07-05 — expo-sqlite + Drizzle; migration v1 POC `_poc_healthcheck`; `DatabaseProvider` no root layout.
 
 ### MO-003 — DI container e wiring base
 
@@ -138,9 +138,11 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `src/shared/di/container.ts` — factory de repositórios e use cases
-- [ ] `src/shared/di/context.tsx` — React context para telas
-- [ ] Regra: telas só acessam use cases via hook `useAppContainer()`
+- [x] `src/shared/di/container.ts` — factory de repositórios e use cases
+- [x] `src/shared/di/context.tsx` — React context para telas
+- [x] Regra: telas só acessam use cases via hook `useAppContainer()`
+
+> **Concluída em:** 2026-07-05 — Container com `db`; provider no root layout.
 
 ---
 
@@ -157,10 +159,12 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `src/i18n/index.ts`, locales `pt-BR.json`, `es-ES.json`, `en-US.json`
-- [ ] Detecção locale 1º launch; fallback `en-US`
-- [ ] Integrar no root `_layout.tsx`
-- [ ] Namespace `common` com strings de tabs e botões base
+- [x] `src/i18n/index.ts`, locales `pt-BR.json`, `es-ES.json`, `en-US.json`
+- [x] Detecção locale 1º launch; fallback `en-US`
+- [x] Integrar no root `_layout.tsx`
+- [x] Namespace `common` com strings de tabs e botões base
+
+> **Concluída em:** 2026-07-05 — i18next + expo-localization; tabs traduzidas.
 
 ---
 
@@ -176,9 +180,11 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `Button`, `Input`, `Card`, `Screen`, `EmptyState`, `Loading`
-- [ ] Tema cores/spacing consistente; suporte a safe area
-- [ ] `SetInputSheet` (bottom sheet reps + carga) — usado em MO-025
+- [x] `Button`, `Input`, `Card`, `Screen`, `EmptyState`, `Loading`
+- [x] Tema cores/spacing consistente; suporte a safe area
+- [x] `SetInputSheet` (bottom sheet reps + carga) — usado em MO-025
+
+> **Concluída em:** 2026-07-05 — Design system em `src/ui/` + `@gorhom/bottom-sheet`.
 
 ---
 

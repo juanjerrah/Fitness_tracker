@@ -1,11 +1,17 @@
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useFonts } from 'expo-font';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { I18nextProvider } from 'react-i18next';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { DatabaseProvider } from '@/data/db/DatabaseProvider';
+import i18n, { initI18n } from '@/i18n';
+import { AppContainerProvider } from '@/shared/di/context';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -13,11 +19,11 @@ export {
 } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '(tabs)',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+initI18n();
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -25,7 +31,6 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
@@ -40,7 +45,19 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <I18nextProvider i18n={i18n}>
+        <DatabaseProvider>
+          <AppContainerProvider>
+            <BottomSheetModalProvider>
+              <RootLayoutNav />
+            </BottomSheetModalProvider>
+          </AppContainerProvider>
+        </DatabaseProvider>
+      </I18nextProvider>
+    </GestureHandlerRootView>
+  );
 }
 
 function RootLayoutNav() {

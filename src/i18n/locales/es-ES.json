@@ -1,0 +1,24 @@
+{
+  "tabs": {
+    "home": "Inicio",
+    "plans": "Fichas",
+    "analytics": "Evolución",
+    "calendar": "Calendario",
+    "settings": "Ajustes"
+  },
+  "actions": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Cerrar",
+    "startWorkout": "Iniciar entrenamiento"
+  },
+  "setInput": {
+    "title": "Registrar serie",
+    "reps": "Repeticiones",
+    "load": "Carga ({{unit}})"
+  },
+  "loading": {
+    "default": "Cargando…"
+  }
+}

@@ -3,6 +3,7 @@ const path = require('path');
 
 const projectRoot = __dirname;
 const config = getDefaultConfig(projectRoot);
+config.resolver.sourceExts.push('sql');
 const expoMetroRoot = path.dirname(require.resolve('@expo/metro/package.json'));
 
 config.resolver.resolveRequest = (context, moduleName, platform) => {
