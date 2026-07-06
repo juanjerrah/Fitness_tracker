@@ -81,16 +81,18 @@ Criar app Expo com TypeScript, Expo Router (tabs template), ESLint/Prettier, est
 
 #### Escopo
 
-- [ ] `npx create-expo-app@latest . --template tabs` (ou equivalente)
-- [ ] Pastas: `src/domain`, `src/data`, `src/infrastructure`, `src/ui`, `src/stores`, `src/shared/di`, `src/i18n`
-- [ ] `tsconfig.json` strict; path aliases `@/domain`, `@/data`, etc.
-- [ ] Scripts: `lint`, `typecheck`, `test`
+- [x] `npx create-expo-app@latest . --template tabs` (ou equivalente)
+- [x] Pastas: `src/domain`, `src/data`, `src/infrastructure`, `src/ui`, `src/stores`, `src/shared/di`, `src/i18n`
+- [x] `tsconfig.json` strict; path aliases `@/domain`, `@/data`, etc.
+- [x] Scripts: `lint`, `typecheck`, `test`
 
 #### Critérios de aceite
 
-- [ ] App inicia em iOS/Android simulator
-- [ ] Estrutura de pastas conforme architecture.md
-- [ ] ESLint passa sem erros
+- [x] App inicia em iOS/Android simulator
+- [x] Estrutura de pastas conforme architecture.md
+- [x] ESLint passa sem erros
+
+> **Concluída em:** 2026-07-05 — Expo SDK 57, tabs template; scaffold via `_expo_scaffold` (dir não vazio). Export web validado.
 
 ---
 
