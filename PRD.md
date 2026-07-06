@@ -1,6 +1,6 @@
 # PRD — Fitness Tracker (Gestão de Treinos de Musculação)
 
-> **Versão:** 1.0  
+> **Versão:** 1.1  
 > **Data:** 2026-07-05  
 > **Autor:** Discovery com Product Manager  
 > **Status:** Rascunho
@@ -88,14 +88,15 @@ Ser o companheiro pessoal de treino que substitui o bloco de notas — organizad
 ### Dentro do escopo (MVP)
 
 - [ ] Biblioteca de exercícios agrupados por grupo muscular
-- [ ] Criação, edição e troca de fichas/rotinas de treino (flexível, histórico preservado)
-- [ ] Execução de treino: registro série a série (reps + carga)
-- [ ] Timer de descanso configurável por exercício
+- [ ] Exercícios customizados criados pelo usuário
+- [ ] Criação, edição e troca de fichas/rotinas de treino (flexível, histórico preservado; apenas arquivar, sem exclusão)
+- [ ] Execução de treino: registro série a série (reps + carga); múltiplos treinos no mesmo dia permitidos
+- [ ] Timer de descanso configurável por exercício; alerta (som/vibração) configurável nas preferências
 - [ ] Conclusão de treino com regra de desbloqueio (todos os exercícios concluídos)
-- [ ] Calendário com marcação automática de dias treinados
-- [ ] Evolução: carga por exercício, volume por treino/semana, recordes pessoais (PRs), gráficos temporais
+- [ ] Calendário com marcação automática de dias treinados (check + contador se > 1 treino/dia)
+- [ ] Evolução: carga por exercício, volume por treino/semana, PRs de carga e volume, gráficos temporais (obrigatórios no MVP)
 - [ ] Armazenamento local offline (SQLite)
-- [ ] Exportação de histórico em arquivo
+- [ ] Exportação em JSON ou CSV (dump completo: sessões, fichas, configurações, biblioteca)
 - [ ] Internacionalização: pt-BR, es-ES, en-US
 - [ ] Preferência de unidades: métrico (kg) ou imperial (lb)
 - [ ] App multiplataforma (iOS e Android)
@@ -119,7 +120,6 @@ Ser o companheiro pessoal de treino que substitui o bloco de notas — organizad
 - Suporte a personal trainers e alunos
 - Integração com wearables
 - RPE (percepção de esforço) e tempo de descanso registrado por série
-- Exercícios customizados criados pelo usuário
 - Temas e personalização visual
 
 ---
@@ -180,24 +180,26 @@ Ser o companheiro pessoal de treino que substitui o bloco de notas — organizad
 | ID | Requisito | Descrição | Prioridade | Rastreabilidade |
 |----|-----------|-----------|------------|-----------------|
 | RF-01 | Biblioteca de exercícios | Listar exercícios agrupados por grupo muscular (ex.: peito, costas, pernas, ombros, bíceps, tríceps, abdômen, glúteos) | Must | UC-01 |
-| RF-02 | CRUD de fichas | Criar, editar, duplicar e arquivar fichas de treino | Must | UC-01, UC-08 |
+| RF-02 | CRUD de fichas | Criar, editar, duplicar e arquivar fichas; exclusão permanente não permitida | Must | UC-01, UC-08 |
 | RF-03 | Parâmetros por exercício na ficha | Definir séries planejadas, faixa de repetições (mín–máx) e tempo de descanso (segundos) | Must | UC-01 |
 | RF-04 | Registro série a série | Após cada série, registrar reps executadas e carga utilizada | Must | UC-02 |
 | RF-05 | Timer de descanso | Iniciar timer automático após registro da série; duração conforme exercício; alerta ao término | Must | UC-02 |
 | RF-06 | Conclusão de exercício | Marcar exercício como concluído quando todas as séries planejadas forem registradas | Must | UC-03 |
 | RF-07 | Conclusão de treino | Botão habilitado apenas quando todos os exercícios da ficha estiverem concluídos | Must | UC-03, RN-01 |
-| RF-08 | Calendário de treinos | Exibir calendário mensal com indicação visual (check) nos dias com treino concluído | Must | UC-05 |
+| RF-08 | Calendário de treinos | Calendário mensal com check nos dias treinados; contador se > 1 treino/dia | Must | UC-05 |
 | RF-09 | Evolução de carga | Gráfico/tabela de carga máxima ou média por exercício ao longo do tempo | Must | UC-04, Objetivo 2 |
 | RF-10 | Volume de treino | Calcular e exibir volume (séries × reps × carga) por sessão e agregado semanal | Must | UC-04, Objetivo 2 |
-| RF-11 | Recordes pessoais (PRs) | Identificar e destacar melhor carga e/ou volume por exercício | Must | UC-04, Objetivo 2 |
+| RF-11 | Recordes pessoais (PRs) | PR de melhor carga e PR de melhor volume por exercício | Must | UC-04, Objetivo 2 |
 | RF-12 | Gráficos temporais | Visualização gráfica de métricas selecionadas por período configurável | Must | UC-04 |
 | RF-13 | Persistência local | Todos os dados armazenados em SQLite; sem dependência de rede | Must | UC-02 |
-| RF-14 | Exportação | Gerar arquivo (JSON ou CSV) com histórico completo de treinos | Must | UC-06 |
+| RF-14 | Exportação | Gerar JSON ou CSV (escolha do usuário) com dump completo de dados | Must | UC-06 |
 | RF-15 | i18n | Interface em pt-BR, es-ES e en-US; idioma selecionável nas configurações | Must | UC-07 |
 | RF-16 | Unidades de medida | Usuário escolhe sistema métrico (kg) ou imperial (lb); cargas exibidas e inputadas na unidade escolhida | Must | UC-07, RN-02 |
 | RF-17 | Preservação de histórico | Edição de ficha não altera nem apaga registros de treinos já concluídos | Must | UC-08, RN-03 |
 | RF-18 | Sessão em andamento | Permitir pausar e retomar treino no mesmo dia sem perda de dados | Should | Cenário de exceção |
 | RF-19 | Contador de dias treinados | Exibir total de dias treinados no período selecionado (semana/mês/ano) | Should | UC-05 |
+| RF-20 | Exercícios customizados | Usuário cria exercícios com nome e grupo muscular além da biblioteca curada | Must | UC-01 |
+| RF-21 | Alerta do timer | Preferência configurável: som, vibração ou ambos | Must | UC-07, UC-02 |
 
 ### Regras de negócio
 
@@ -208,7 +210,8 @@ Ser o companheiro pessoal de treino que substitui o bloco de notas — organizad
 | RN-03 | Integridade do histórico | Ficha é editada após treinos já registrados | Treinos passados mantêm snapshot dos dados registrados na sessão |
 | RN-04 | Marcação no calendário | Usuário conclui treino via botão | Dia atual recebe marcação de treino realizado |
 | RN-05 | Cálculo de volume | Série registrada com reps = R e carga = C | Volume da série = R × C (na unidade escolhida pelo usuário) |
-| RN-06 | Recorde pessoal | Nova série supera melhor carga ou volume histórico do exercício | PR atualizado e destacado na interface |
+| RN-06 | Recorde pessoal de carga | Nova série supera melhor carga histórica do exercício | PR de carga atualizado e destacado |
+| RN-06b | Recorde pessoal de volume | Nova série supera melhor volume (reps × carga) histórico | PR de volume atualizado e destacado |
 
 ---
 
@@ -256,7 +259,7 @@ Ser o companheiro pessoal de treino que substitui o bloco de notas — organizad
 - O usuário é o único utilizador do app no MVP
 - A biblioteca de exercícios será pré-populada com lista curada (não depende de API externa)
 - Cargas são armazenadas internamente em kg; conversão para exibição em lb
-- Um treino por dia é o caso mais comum; múltiplos treinos no mesmo dia podem ser tratados como exceção (perguntas em aberto)
+- Um treino por dia é o caso mais comum; **múltiplos treinos no mesmo dia são permitidos** (decisão 2026-07-05)
 - Academia com conectividade instável — offline é requisito, não opcional
 
 ### Riscos
@@ -300,31 +303,47 @@ Ser o companheiro pessoal de treino que substitui o bloco de notas — organizad
 
 ---
 
-## 12. Perguntas em aberto
+## 12. Decisões de produto (fechadas em 2026-07-05)
 
-| # | Pergunta | Responsável | Prazo para resposta |
-|---|----------|-------------|---------------------|
-| 1 | Múltiplos treinos no mesmo dia: permitir ou restringir a um? | Usuário | Antes do incremento 1 |
-| 2 | Formato preferido de exportação: JSON, CSV ou ambos? | Usuário | Antes do incremento 3 |
-| 3 | Alerta do timer: som, vibração ou ambos? Configurável? | Usuário | Antes do incremento 1 |
-| 4 | Faixa de reps: validar se reps registradas estão dentro da margem? | Usuário | Antes do incremento 1 |
-| 5 | Versões mínimas de iOS e Android aceitáveis? | Desenvolvedor | Fase de arquitetura |
-| 6 | Exercícios customizados entram no MVP ou só biblioteca curada? | Usuário | Antes do incremento 1 |
+| # | Tópico | Decisão |
+|---|--------|---------|
+| 1 | Múltiplos treinos no mesmo dia | **Permitir.** Calendário exibe check no dia; se houver mais de um treino, mostra contador (ex.: "2") |
+| 2 | Formato de exportação | **JSON e CSV** — usuário escolhe no momento da exportação |
+| 3 | Alerta do timer de descanso | **Configurável** nas configurações: som, vibração ou ambos |
+| 4 | Validação de faixa de reps | **Não validar** — aceitar qualquer valor de reps informado |
+| 5 | Exercícios customizados | **Incluir no MVP** — usuário pode criar exercícios além da biblioteca curada |
+| 6 | Exclusão de ficha com histórico | **Só arquivar** — nunca excluir ficha; histórico sempre preservado |
+| 7 | Recordes pessoais (PRs) | **Ambos** — PR de melhor carga e PR de melhor volume por exercício |
+| 8 | Gráficos de evolução | **Obrigatórios no MVP** — não adiar para fase seguinte |
+| 9 | Escopo da exportação | **Dump completo** — sessões, séries, fichas, configurações e biblioteca |
+| 10 | Idioma padrão | **Locale do dispositivo** na primeira abertura; fallback `en-US` se idioma não suportado |
+| 11 | Unidade padrão | **Métrico (kg)** na primeira abertura |
 
 ---
 
-## 13. Histórico de revisões
+## 13. Perguntas em aberto
+
+| # | Pergunta | Responsável | Prazo para resposta |
+|---|----------|-------------|---------------------|
+| 1 | CSV export: arquivo flat ou ZIP com múltiplos? | Desenvolvedor | Spike ExportacaoHistorico |
+| 2 | Soft-delete de exercício custom sem vínculos — UX | Desenvolvedor | BibliotecaExercicios |
+
+> **Resolvidas em `.specs/architecture.md`:** versões mínimas (defaults Expo SDK), timer em background (notificação local), seed ~8–12 exercícios/grupo, stack Expo + Drizzle.
+
+---
+
+## 14. Histórico de revisões
 
 | Versão | Data | Autor | Alterações |
 |--------|------|-------|------------|
 | 1.0 | 2026-07-05 | Discovery PM | Versão inicial |
+| 1.1 | 2026-07-05 | Product Owner | Decisões de produto fechadas; perguntas resolvidas |
 
 ---
 
 ## Próximos passos recomendados
 
-1. **Responder perguntas em aberto** — especialmente múltiplos treinos/dia e formato de exportação
-2. **Decompor em features** — usar skill Product Owner para gerar `.specs/` a partir deste PRD
-3. **Definir arquitetura técnica** — stack multiplataforma, schema SQLite, estratégia de i18n e conversão de unidades
+1. **Definir arquitetura técnica** — stack multiplataforma, schema SQLite, i18n, timer em background
+2. **Curadoria da biblioteca de exercícios** — listar exercícios iniciais por grupo muscular nos 3 idiomas
 4. **Priorizar incrementos** — entregar valor usável cedo (ficha + treino) antes de gráficos e polish
 5. **Curadoria da biblioteca de exercícios** — listar exercícios iniciais por grupo muscular nos 3 idiomas
