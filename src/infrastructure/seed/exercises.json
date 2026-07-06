@@ -1,0 +1,322 @@
+[
+  {
+    "id": "seed-chest-01",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.bench_press"
+  },
+  {
+    "id": "seed-chest-02",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.incline_bench_press"
+  },
+  {
+    "id": "seed-chest-03",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.dumbbell_fly"
+  },
+  {
+    "id": "seed-chest-04",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.cable_crossover"
+  },
+  {
+    "id": "seed-chest-05",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.push_up"
+  },
+  {
+    "id": "seed-chest-06",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.chest_dip"
+  },
+  {
+    "id": "seed-chest-07",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.pec_deck"
+  },
+  {
+    "id": "seed-chest-08",
+    "muscleGroup": "chest",
+    "nameKey": "exercises.decline_bench_press"
+  },
+  {
+    "id": "seed-back-01",
+    "muscleGroup": "back",
+    "nameKey": "exercises.pull_up"
+  },
+  {
+    "id": "seed-back-02",
+    "muscleGroup": "back",
+    "nameKey": "exercises.barbell_row"
+  },
+  {
+    "id": "seed-back-03",
+    "muscleGroup": "back",
+    "nameKey": "exercises.lat_pulldown"
+  },
+  {
+    "id": "seed-back-04",
+    "muscleGroup": "back",
+    "nameKey": "exercises.seated_cable_row"
+  },
+  {
+    "id": "seed-back-05",
+    "muscleGroup": "back",
+    "nameKey": "exercises.deadlift"
+  },
+  {
+    "id": "seed-back-06",
+    "muscleGroup": "back",
+    "nameKey": "exercises.t_bar_row"
+  },
+  {
+    "id": "seed-back-07",
+    "muscleGroup": "back",
+    "nameKey": "exercises.face_pull"
+  },
+  {
+    "id": "seed-back-08",
+    "muscleGroup": "back",
+    "nameKey": "exercises.hyperextension"
+  },
+  {
+    "id": "seed-legs-01",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.squat"
+  },
+  {
+    "id": "seed-legs-02",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.leg_press"
+  },
+  {
+    "id": "seed-legs-03",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.leg_extension"
+  },
+  {
+    "id": "seed-legs-04",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.leg_curl"
+  },
+  {
+    "id": "seed-legs-05",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.lunge"
+  },
+  {
+    "id": "seed-legs-06",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.calf_raise"
+  },
+  {
+    "id": "seed-legs-07",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.hack_squat"
+  },
+  {
+    "id": "seed-legs-08",
+    "muscleGroup": "legs",
+    "nameKey": "exercises.romanian_deadlift"
+  },
+  {
+    "id": "seed-shoulders-01",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.overhead_press"
+  },
+  {
+    "id": "seed-shoulders-02",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.lateral_raise"
+  },
+  {
+    "id": "seed-shoulders-03",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.front_raise"
+  },
+  {
+    "id": "seed-shoulders-04",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.rear_delt_fly"
+  },
+  {
+    "id": "seed-shoulders-05",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.arnold_press"
+  },
+  {
+    "id": "seed-shoulders-06",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.upright_row"
+  },
+  {
+    "id": "seed-shoulders-07",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.shrugs"
+  },
+  {
+    "id": "seed-shoulders-08",
+    "muscleGroup": "shoulders",
+    "nameKey": "exercises.shoulder_face_pull"
+  },
+  {
+    "id": "seed-biceps-01",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.barbell_curl"
+  },
+  {
+    "id": "seed-biceps-02",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.dumbbell_curl"
+  },
+  {
+    "id": "seed-biceps-03",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.hammer_curl"
+  },
+  {
+    "id": "seed-biceps-04",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.preacher_curl"
+  },
+  {
+    "id": "seed-biceps-05",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.concentration_curl"
+  },
+  {
+    "id": "seed-biceps-06",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.cable_curl"
+  },
+  {
+    "id": "seed-biceps-07",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.incline_curl"
+  },
+  {
+    "id": "seed-biceps-08",
+    "muscleGroup": "biceps",
+    "nameKey": "exercises.spider_curl"
+  },
+  {
+    "id": "seed-triceps-01",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.tricep_pushdown"
+  },
+  {
+    "id": "seed-triceps-02",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.skull_crusher"
+  },
+  {
+    "id": "seed-triceps-03",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.overhead_tricep_extension"
+  },
+  {
+    "id": "seed-triceps-04",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.close_grip_bench"
+  },
+  {
+    "id": "seed-triceps-05",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.tricep_dip"
+  },
+  {
+    "id": "seed-triceps-06",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.cable_kickback"
+  },
+  {
+    "id": "seed-triceps-07",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.dumbbell_kickback"
+  },
+  {
+    "id": "seed-triceps-08",
+    "muscleGroup": "triceps",
+    "nameKey": "exercises.jm_press"
+  },
+  {
+    "id": "seed-abs-01",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.crunch"
+  },
+  {
+    "id": "seed-abs-02",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.plank"
+  },
+  {
+    "id": "seed-abs-03",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.leg_raise"
+  },
+  {
+    "id": "seed-abs-04",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.russian_twist"
+  },
+  {
+    "id": "seed-abs-05",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.cable_crunch"
+  },
+  {
+    "id": "seed-abs-06",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.ab_wheel"
+  },
+  {
+    "id": "seed-abs-07",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.hanging_leg_raise"
+  },
+  {
+    "id": "seed-abs-08",
+    "muscleGroup": "abs",
+    "nameKey": "exercises.bicycle_crunch"
+  },
+  {
+    "id": "seed-glutes-01",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.hip_thrust"
+  },
+  {
+    "id": "seed-glutes-02",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.glute_bridge"
+  },
+  {
+    "id": "seed-glutes-03",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.glute_kickback"
+  },
+  {
+    "id": "seed-glutes-04",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.sumo_deadlift"
+  },
+  {
+    "id": "seed-glutes-05",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.step_up"
+  },
+  {
+    "id": "seed-glutes-06",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.bulgarian_split_squat"
+  },
+  {
+    "id": "seed-glutes-07",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.fire_hydrant"
+  },
+  {
+    "id": "seed-glutes-08",
+    "muscleGroup": "glutes",
+    "nameKey": "exercises.donkey_kick"
+  }
+]

@@ -2,6 +2,7 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@/domain/*": ["src/domain/*"],
@@ -12,6 +13,7 @@
       "@/shared/*": ["src/shared/*"],
       "@/i18n": ["src/i18n/index.ts"],
       "@/i18n/*": ["src/i18n/*"],
+      "@/lib/*": ["src/lib/*"],
       "@/*": ["./*"]
     }
   },

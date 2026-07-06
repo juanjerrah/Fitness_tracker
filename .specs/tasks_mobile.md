@@ -201,10 +201,12 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `src/data/db/schema.ts`: `exercises`, `workout_plans`, `plan_exercises`, `workout_sessions`, `session_exercises`, `set_logs`, `user_settings`
-- [ ] Índices: `idx_sessions_completed_at`, `idx_set_logs_session_exercise`, `idx_plan_exercises_plan`
-- [ ] Migration v1 via drizzle-kit
-- [ ] Entidades em `src/domain/entities/*.ts`
+- [x] `src/data/db/schema.ts`: `exercises`, `workout_plans`, `plan_exercises`, `workout_sessions`, `session_exercises`, `set_logs`, `user_settings`
+- [x] Índices: `idx_sessions_completed_at`, `idx_set_logs_session_exercise`, `idx_plan_exercises_plan`
+- [x] Migration v1 via drizzle-kit
+- [x] Entidades em `src/domain/entities/*.ts`
+
+> **Concluída em:** 2026-07-05 — Schema completo; migration `0000_dapper_the_stranger`; POC removido.
 
 ---
 
@@ -221,11 +223,13 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `ISettingsRepository`, `SettingsRepository`, mappers
-- [ ] `GetSettingsUseCase`, `UpdateSettingsUseCase`
-- [ ] Defaults: locale device, `metric`, `timerAlert: both`
-- [ ] Seed row id=1 on first launch
-- [ ] Testes unitários use cases
+- [x] `ISettingsRepository`, `SettingsRepository`, mappers
+- [x] `GetSettingsUseCase`, `UpdateSettingsUseCase`
+- [x] Defaults: locale device, `metric`, `timerAlert: both`
+- [x] Seed row id=1 on first launch
+- [x] Testes unitários use cases
+
+> **Concluída em:** 2026-07-05 — Bootstrap em `onFirstLaunch`; testes em `__tests__/use-cases/settings.test.ts`.
 
 ---
 
@@ -242,11 +246,13 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `IExerciseRepository`, `ExerciseRepository`
-- [ ] `src/infrastructure/seed/exercises.json` (~8–12/grupo, 8 grupos)
-- [ ] `SeedExercisesOnFirstLaunch` idempotente
-- [ ] `ListExercisesByGroupUseCase`, `SearchExercisesUseCase`, `CreateCustomExerciseUseCase`
-- [ ] i18n keys para exercícios seed em 3 locales
+- [x] `IExerciseRepository`, `ExerciseRepository`
+- [x] `src/infrastructure/seed/exercises.json` (~8–12/grupo, 8 grupos)
+- [x] `SeedExercisesOnFirstLaunch` idempotente
+- [x] `ListExercisesByGroupUseCase`, `SearchExercisesUseCase`, `CreateCustomExerciseUseCase`
+- [x] i18n keys para exercícios seed em 3 locales
+
+> **Concluída em:** 2026-07-05 — 64 exercícios seed; i18n `exercises.*` nos 3 locales.
 
 ---
 
@@ -263,11 +269,13 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `IPlanRepository`, `PlanRepository` — transação plan + plan_exercises
-- [ ] `CreatePlanUseCase`, `UpdatePlanUseCase`, `ArchivePlanUseCase`, `DuplicatePlanUseCase`, `ListActivePlansUseCase`
-- [ ] Validação: ≥1 exercício, séries ≥1, repMin ≤ repMax, rest ≥0
-- [ ] Sem delete — só `status: archived`
-- [ ] Testes: update plan não altera sessions existentes
+- [x] `IPlanRepository`, `PlanRepository` — transação plan + plan_exercises
+- [x] `CreatePlanUseCase`, `UpdatePlanUseCase`, `ArchivePlanUseCase`, `DuplicatePlanUseCase`, `ListActivePlansUseCase`
+- [x] Validação: ≥1 exercício, séries ≥1, repMin ≤ repMax, rest ≥0
+- [x] Sem delete — só `status: archived`
+- [x] Testes: update plan não altera sessions existentes
+
+> **Concluída em:** 2026-07-05 — RN-03 via snapshot em sessions; teste em `plans.test.ts`.
 
 ---
 
@@ -284,13 +292,15 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `ISessionRepository`, `SessionRepository`
-- [ ] `StartSessionUseCase` — snapshot plan_exercises → session_exercises (ADR-003)
-- [ ] `LogSetUseCase` — insert set_log; validar reps≥0, load≥0; RN-05 volume
-- [ ] `CompleteExerciseUseCase`, `CompleteSessionUseCase` — RN-01
-- [ ] `GetActiveSessionUseCase` — RF-18 retomada
-- [ ] `load_kg` canônico; converter input via `lib/units.ts` + settings
-- [ ] Testes unitários RN-01, RN-03, RN-05
+- [x] `ISessionRepository`, `SessionRepository`
+- [x] `StartSessionUseCase` — snapshot plan_exercises → session_exercises (ADR-003)
+- [x] `LogSetUseCase` — insert set_log; validar reps≥0, load≥0; RN-05 volume
+- [x] `CompleteExerciseUseCase`, `CompleteSessionUseCase` — RN-01
+- [x] `GetActiveSessionUseCase` — RF-18 retomada
+- [x] `load_kg` canônico; converter input via `lib/units.ts` + settings
+- [x] Testes unitários RN-01, RN-03, RN-05
+
+> **Concluída em:** 2026-07-05 — `lib/units.ts`; testes em `sessions.test.ts`.
 
 ---
 
@@ -307,10 +317,12 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `ICalendarRepository`, `CalendarRepository`
-- [ ] `GetCalendarMonthUseCase` — dias com check + count se >1
-- [ ] `GetSessionsByDateUseCase` — lista sessões do dia
-- [ ] Query por `date(completed_at)` local timezone
+- [x] `ICalendarRepository`, `CalendarRepository`
+- [x] `GetCalendarMonthUseCase` — dias com check + count se >1
+- [x] `GetSessionsByDateUseCase` — lista sessões do dia
+- [x] Query por `date(completed_at)` local timezone
+
+> **Concluída em:** 2026-07-05 — `lib/dates.ts` para date key local.
 
 ---
 
@@ -327,11 +339,13 @@ Configurar expo-sqlite sync API, Drizzle ORM, drizzle-kit, client singleton e ho
 
 #### Escopo
 
-- [ ] `IAnalyticsRepository`, `AnalyticsRepository`
-- [ ] `GetLoadHistoryUseCase` — série temporal por exerciseId
-- [ ] `GetWeeklyVolumeUseCase` — agregação semanal
-- [ ] `GetPersonalRecordsUseCase` — MAX(load_kg) e MAX(reps*load_kg) por exercise
-- [ ] Testes com fixtures SQLite in-memory
+- [x] `IAnalyticsRepository`, `AnalyticsRepository`
+- [x] `GetLoadHistoryUseCase` — série temporal por exerciseId
+- [x] `GetWeeklyVolumeUseCase` — agregação semanal
+- [x] `GetPersonalRecordsUseCase` — MAX(load_kg) e MAX(reps*load_kg) por exercise
+- [x] Testes com fixtures SQLite in-memory
+
+> **Concluída em:** 2026-07-05 — PRs on-read (ADR-004); teste `analytics.test.ts`.
 
 ---
 

@@ -1,11 +1,11 @@
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
 import { useEffect, useState, type ReactNode } from 'react';
 
+import { runOnFirstLaunch } from '@/infrastructure/bootstrap/onFirstLaunch';
 import { Loading } from '@/ui/Loading';
 
 import { getDatabase } from './client';
 import migrations from './migrations/migrations';
-import { runPocHealthcheck } from './pocHealthcheck';
 
 type DatabaseProviderProps = {
   children: ReactNode;
@@ -14,8 +14,8 @@ type DatabaseProviderProps = {
 export function DatabaseProvider({ children }: DatabaseProviderProps) {
   const db = getDatabase();
   const { success, error } = useMigrations(db, migrations);
-  const [pocReady, setPocReady] = useState(false);
-  const [pocError, setPocError] = useState<Error | null>(null);
+  const [ready, setReady] = useState(false);
+  const [bootstrapError, setBootstrapError] = useState<Error | null>(null);
 
   useEffect(() => {
     if (!success) {
@@ -24,32 +24,32 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
 
     let cancelled = false;
 
-    runPocHealthcheck()
+    runOnFirstLaunch(db)
       .then(() => {
         if (!cancelled) {
-          setPocReady(true);
+          setReady(true);
         }
       })
       .catch((err: unknown) => {
         if (!cancelled) {
-          setPocError(err instanceof Error ? err : new Error(String(err)));
+          setBootstrapError(err instanceof Error ? err : new Error(String(err)));
         }
       });
 
     return () => {
       cancelled = true;
     };
-  }, [success]);
+  }, [success, db]);
 
   if (error) {
     throw error;
   }
 
-  if (pocError) {
-    throw pocError;
+  if (bootstrapError) {
+    throw bootstrapError;
   }
 
-  if (!success || !pocReady) {
+  if (!success || !ready) {
     return <Loading fullScreen message="Preparing database…" />;
   }
 
